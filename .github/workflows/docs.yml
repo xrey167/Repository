@@ -6,13 +6,16 @@ on:
     paths:
       - 'docs/**'
       - 'agents/src/**'
+      - 'tradesync/src/**'
       - 'agents/typedoc.json'
+      - 'tradesync/typedoc.json'
       - '.github/workflows/docs.yml'
   pull_request:
     branches: [main]
     paths:
       - 'docs/**'
       - 'agents/src/**'
+      - 'tradesync/src/**'
       - '.github/workflows/docs.yml'
   workflow_dispatch:
 
@@ -41,7 +44,6 @@ jobs:
         with:
           bun-version: latest
 
-      # Generate TypeDoc documentation for agents project
       - name: Install agents dependencies
         working-directory: agents
         run: bun install --frozen-lockfile
@@ -50,13 +52,14 @@ jobs:
         working-directory: agents
         run: bun run docs:generate
 
-      # TODO: Add TypeDoc generation for other TypeScript projects
-      # - algotrading
-      # - github
-      # - n8n
-      # - notion
+      - name: Install tradesync dependencies
+        working-directory: tradesync
+        run: bun install --frozen-lockfile
 
-      # Build Docusaurus site
+      - name: Generate tradesync API docs
+        working-directory: tradesync
+        run: bun run docs:generate
+
       - name: Install docs dependencies
         working-directory: docs
         run: bun install --frozen-lockfile
