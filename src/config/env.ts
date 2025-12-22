@@ -37,6 +37,25 @@ export const env = {
   // Project specific
   DATABASE_URL: process.env.DATABASE_URL,
   LOG_LEVEL: process.env.LOG_LEVEL || "info",
+  NODE_ENV: process.env.NODE_ENV || "development",
+
+  // Trading configuration
+  TRADING_MODE: process.env.TRADING_MODE || "paper", // backtest | paper | live
+  LOG_DIRECTORY: process.env.LOG_DIRECTORY,
+  CSV_DATA_PATH: process.env.CSV_DATA_PATH,
+
+  // Exchange API keys
+  BINANCE_API_KEY: process.env.BINANCE_API_KEY,
+  BINANCE_API_SECRET: process.env.BINANCE_API_SECRET,
+  BINANCE_SANDBOX: process.env.BINANCE_SANDBOX,
+  BINANCE_API_URL: process.env.BINANCE_API_URL,
+  BINANCE_WS_URL: process.env.BINANCE_WS_URL,
+
+  COINBASE_API_KEY: process.env.COINBASE_API_KEY,
+  COINBASE_API_SECRET: process.env.COINBASE_API_SECRET,
+  COINBASE_SANDBOX: process.env.COINBASE_SANDBOX,
+  COINBASE_API_URL: process.env.COINBASE_API_URL,
+  COINBASE_WS_URL: process.env.COINBASE_WS_URL,
 
   // Helpers
   isDev: process.env.NODE_ENV !== "production",
