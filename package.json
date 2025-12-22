@@ -6,7 +6,9 @@
     "dev": "bun run src/index.ts",
     "build": "bun build src/index.ts --outdir dist --target node",
     "test": "bun test",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "docs:generate": "typedoc",
+    "docs:watch": "typedoc --watch"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.52.0",
@@ -16,6 +18,8 @@
   },
   "devDependencies": {
     "@types/node": "^22.10.2",
+    "typedoc": "^0.28.15",
+    "typedoc-plugin-markdown": "^4.9.0",
     "typescript": "^5.7.2"
   }
 }
