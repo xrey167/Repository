@@ -80,6 +80,8 @@ export interface Signal {
   quantity?: number;
   /** Suggested order type (optional) */
   orderType?: import('./trading.types').OrderType;
+  /** Strategy name that generated this signal (optional) */
+  strategy?: string;
   /** Reason for the signal (optional) */
   reason?: string;
   /** Additional metadata */

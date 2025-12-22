@@ -15,17 +15,17 @@ export interface MACDValue {
   /**
    * MACD line (fast EMA - slow EMA)
    */
-  macd: number;
+  macd: number | null;
 
   /**
    * Signal line (EMA of MACD)
    */
-  signal: number;
+  signal: number | null;
 
   /**
    * Histogram (MACD - Signal)
    */
-  histogram: number;
+  histogram: number | null;
 }
 
 /**

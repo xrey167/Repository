@@ -21,27 +21,27 @@ export interface VolumeProfileValue {
   /**
    * Point of Control (price level with highest volume)
    */
-  poc: number;
+  poc: number | null;
 
   /**
    * Value Area High (top of 70% volume area)
    */
-  valueAreaHigh: number;
+  valueAreaHigh: number | null;
 
   /**
    * Value Area Low (bottom of 70% volume area)
    */
-  valueAreaLow: number;
+  valueAreaLow: number | null;
 
   /**
    * Total volume in the period
    */
-  totalVolume: number;
+  totalVolume: number | null;
 
   /**
    * Volume distribution by price level
    */
-  levels: PriceLevel[];
+  levels: PriceLevel[] | null;
 }
 
 /**

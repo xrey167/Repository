@@ -25,7 +25,7 @@ import type { PriceSource } from '../base';
  */
 export class RSIIndicator extends IndicatorBase<number> {
   readonly name = 'RSI';
-  readonly requiredCandles: number;
+  requiredCandles: number;
 
   private period: number;
   private previousAvgGain: number | null = null;

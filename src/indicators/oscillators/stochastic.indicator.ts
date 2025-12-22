@@ -15,12 +15,12 @@ export interface StochasticValue {
   /**
    * %K line (fast stochastic)
    */
-  k: number;
+  k: number | null;
 
   /**
    * %D line (slow stochastic, SMA of %K)
    */
-  d: number;
+  d: number | null;
 }
 
 /**

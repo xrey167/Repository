@@ -21,7 +21,7 @@ import { IndicatorBase } from '../base/indicator-base';
  */
 export class ATRIndicator extends IndicatorBase<number> {
   readonly name = 'ATR';
-  readonly requiredCandles: number;
+  requiredCandles: number;
 
   private period: number;
   private previousATR: number | null = null;

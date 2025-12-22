@@ -103,6 +103,8 @@ export interface Position {
   stopLoss?: number;
   /** Take profit price (optional) */
   takeProfit?: number;
+  /** Margin used for this position (optional, for margin trading) */
+  margin?: number;
   /** Position opened timestamp */
   openedAt: number;
   /** Position last updated timestamp */
@@ -135,6 +137,10 @@ export interface Portfolio {
   realizedPnl: number;
   /** Total unrealized profit/loss */
   unrealizedPnl: number;
+  /** Margin used (optional, for margin trading) */
+  marginUsed?: number;
+  /** Available margin (optional, for margin trading) */
+  marginAvailable?: number;
   /** Last update timestamp */
   timestamp: number;
   /** Additional metadata */

@@ -171,7 +171,7 @@ export class Backtester {
       symbol: signal.symbol,
       side: signal.side,
       type: signal.orderType || 'market',
-      quantity: signal.quantity,
+      quantity: signal.quantity ?? 1,
       price: signal.price,
       status: 'pending',
       filledQuantity: 0,

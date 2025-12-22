@@ -21,7 +21,7 @@ import type { PriceSource } from '../base';
  */
 export class EMAIndicator extends IndicatorBase<number> {
   readonly name = 'EMA';
-  readonly requiredCandles: number;
+  requiredCandles: number;
 
   private period: number;
   private multiplier: number;

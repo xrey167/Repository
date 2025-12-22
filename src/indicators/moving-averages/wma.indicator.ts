@@ -21,7 +21,7 @@ import type { PriceSource } from '../base';
  */
 export class WMAIndicator extends IndicatorBase<number> {
   readonly name = 'WMA';
-  readonly requiredCandles: number;
+  requiredCandles: number;
 
   private period: number;
   private weightSum: number;

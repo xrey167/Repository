@@ -16,28 +16,28 @@ export interface BollingerBandsValue {
   /**
    * Upper band (SMA + stdDev * multiplier)
    */
-  upper: number;
+  upper: number | null;
 
   /**
    * Middle band (SMA)
    */
-  middle: number;
+  middle: number | null;
 
   /**
    * Lower band (SMA - stdDev * multiplier)
    */
-  lower: number;
+  lower: number | null;
 
   /**
    * Bandwidth (upper - lower)
    */
-  bandwidth: number;
+  bandwidth: number | null;
 
   /**
    * %B indicator ((price - lower) / (upper - lower))
    * Shows where price is relative to bands
    */
-  percentB: number;
+  percentB: number | null;
 }
 
 /**

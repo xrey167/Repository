@@ -18,7 +18,7 @@ import type { PriceSource } from '../base';
  */
 export class SMAIndicator extends IndicatorBase<number> {
   readonly name = 'SMA';
-  readonly requiredCandles: number;
+  requiredCandles: number;
 
   private period: number;
 
