@@ -44,10 +44,10 @@ export class Scanner {
 
   constructor(config: ScannerConfig, screener: ScreenerEngine) {
     this.config = {
-      timeframe: '1h',
-      candleLimit: 100,
-      batchSize: 10,
       ...config,
+      timeframe: config.timeframe ?? '1h',
+      candleLimit: config.candleLimit ?? 100,
+      batchSize: config.batchSize ?? 10,
     };
     this.screener = screener;
   }

@@ -290,7 +290,9 @@ export class PortfolioManager {
 
       if (portfolio.cash < requiredAmount) {
         throw new InsufficientBalanceError(
-          `Insufficient balance. Required: ${requiredAmount}, Available: ${portfolio.cash}`
+          requiredAmount,
+          portfolio.cash,
+          'cash'
         );
       }
 

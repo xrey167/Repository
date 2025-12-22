@@ -69,13 +69,16 @@ export class Backtester {
     this.strategy = strategy;
     this.adapter = adapter;
     this.config = {
-      commission: 0.001,
-      slippage: 0.0005,
       ...config,
+      commission: config.commission ?? 0.001,
+      slippage: config.slippage ?? 0.0005,
     };
 
     this.portfolioManager = new PortfolioManager();
-    this.riskManager = new RiskManager(tradingConfig.risk);
+    this.riskManager = new RiskManager({
+      ...tradingConfig.risk,
+      ...tradingConfig.positions,
+    });
     this.tradeLogger = TradeLogger.getInstance();
   }
 

@@ -3,9 +3,8 @@
  * Trading strategy framework with backtesting
  */
 
-// Base
-export type { IStrategy, StrategyConfig } from './base';
-export { StrategyBase, StrategyContext } from './base';
+// Base (IStrategy, StrategyConfig, and StrategyContext already exported from core/types)
+export { StrategyBase } from './base';
 
 // Backtesting
 export { Backtester, PerformanceMetricsCalculator } from './backtest';

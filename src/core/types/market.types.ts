@@ -62,6 +62,12 @@ export interface Ticker {
   volume24h?: number;
   /** 24-hour price change percentage (optional) */
   change24h?: number;
+  /** Price change in absolute value (optional) */
+  priceChange?: number;
+  /** Price change in percentage (optional) */
+  priceChangePercent?: number;
+  /** Quote volume (volume in quote currency) (optional) */
+  quoteVolume?: number;
 }
 
 /**
@@ -91,10 +97,16 @@ export interface Symbol {
   quote: string;
   /** Whether the symbol is currently active for trading */
   active: boolean;
+  /** Alias for active (for compatibility) */
+  isActive?: boolean;
   /** Minimum trade size */
   minTradeSize: number;
+  /** Alias for minTradeSize (for compatibility) */
+  minQuantity?: number;
   /** Maximum trade size */
   maxTradeSize: number;
+  /** Alias for maxTradeSize (for compatibility) */
+  maxQuantity?: number;
   /** Price precision (decimal places) */
   pricePrecision: number;
   /** Quantity precision (decimal places) */

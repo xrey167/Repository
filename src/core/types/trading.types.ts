@@ -96,9 +96,9 @@ export interface Position {
   /** Current market price */
   currentPrice: number;
   /** Unrealized profit/loss */
-  unrealizedPnL: number;
+  unrealizedPnl: number;
   /** Realized profit/loss */
-  realizedPnL: number;
+  realizedPnl: number;
   /** Stop loss price (optional) */
   stopLoss?: number;
   /** Take profit price (optional) */
@@ -130,11 +130,11 @@ export interface Portfolio {
   /** Initial capital */
   initialCapital: number;
   /** Total profit/loss */
-  totalPnL: number;
+  totalPnl: number;
   /** Total realized profit/loss */
-  totalRealizedPnL: number;
+  realizedPnl: number;
   /** Total unrealized profit/loss */
-  totalUnrealizedPnL: number;
+  unrealizedPnl: number;
   /** Last update timestamp */
   timestamp: number;
   /** Additional metadata */
@@ -165,6 +165,10 @@ export interface Trade {
   timestamp: number;
   /** Strategy that generated the trade (optional) */
   strategy?: string;
+  /** Realized profit/loss from this trade (optional) */
+  realizedPnl?: number;
+  /** Position side for this trade (optional) */
+  positionSide?: PositionSide;
   /** Additional metadata */
   metadata?: Record<string, unknown>;
 }

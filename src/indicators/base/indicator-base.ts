@@ -15,10 +15,10 @@ export abstract class IndicatorBase<T extends IndicatorValue = IndicatorValue>
   implements IIndicator<T>
 {
   abstract readonly name: string;
-  abstract readonly requiredCandles: number;
+  abstract requiredCandles: number;
 
   protected candles: Candle[] = [];
-  protected values: T[] = [];
+  protected values: (T | null)[] = [];
   protected source: PriceSource;
 
   constructor(source: PriceSource = 'close') {
@@ -28,13 +28,13 @@ export abstract class IndicatorBase<T extends IndicatorValue = IndicatorValue>
   /**
    * Calculate indicator value for a single candle
    */
-  abstract calculate(candles: Candle[], index?: number): T;
+  abstract calculate(candles: Candle[], index?: number): T | null;
 
   /**
    * Calculate indicator values for all candles
    */
-  calculateAll(candles: Candle[]): T[] {
-    const results: T[] = [];
+  calculateAll(candles: Candle[]): (T | null)[] {
+    const results: (T | null)[] = [];
 
     for (let i = 0; i < candles.length; i++) {
       results.push(this.calculate(candles, i));
@@ -46,7 +46,7 @@ export abstract class IndicatorBase<T extends IndicatorValue = IndicatorValue>
   /**
    * Update indicator with new candle
    */
-  update(candle: Candle): T {
+  update(candle: Candle): T | null {
     this.candles.push(candle);
 
     // Keep only required candles for efficiency
@@ -112,7 +112,7 @@ export abstract class IndicatorBase<T extends IndicatorValue = IndicatorValue>
   /**
    * Get all calculated values
    */
-  getValues(): T[] {
+  getValues(): (T | null)[] {
     return [...this.values];
   }
 

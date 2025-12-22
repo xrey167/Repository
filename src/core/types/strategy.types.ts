@@ -70,10 +70,16 @@ export interface Signal {
   price?: number;
   /** Suggested stop loss (optional) */
   stopLoss?: number;
+  /** Suggested stop price (optional) */
+  stopPrice?: number;
   /** Suggested take profit (optional) */
   takeProfit?: number;
   /** Signal generation timestamp */
   timestamp: number;
+  /** Suggested quantity (optional) */
+  quantity?: number;
+  /** Suggested order type (optional) */
+  orderType?: import('./trading.types').OrderType;
   /** Reason for the signal (optional) */
   reason?: string;
   /** Additional metadata */

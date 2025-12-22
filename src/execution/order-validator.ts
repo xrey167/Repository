@@ -150,7 +150,9 @@ export class OrderValidator {
 
       if (portfolio.cash < requiredAmount) {
         throw new InsufficientBalanceError(
-          `Insufficient cash. Required: ${requiredAmount.toFixed(2)}, Available: ${portfolio.cash.toFixed(2)}`
+          requiredAmount,
+          portfolio.cash,
+          'cash'
         );
       }
     } else if (order.side === 'sell') {
@@ -158,12 +160,18 @@ export class OrderValidator {
       const position = positions.find((p) => p.symbol === order.symbol);
 
       if (!position) {
-        throw new InsufficientBalanceError(`No position in ${order.symbol}`);
+        throw new InsufficientBalanceError(
+          order.quantity ?? 0,
+          0,
+          order.symbol
+        );
       }
 
       if (position.quantity < (order.quantity ?? 0)) {
         throw new InsufficientBalanceError(
-          `Insufficient position. Required: ${order.quantity}, Available: ${position.quantity}`
+          order.quantity ?? 0,
+          position.quantity,
+          order.symbol
         );
       }
     }

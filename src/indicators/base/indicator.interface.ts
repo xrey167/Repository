@@ -9,7 +9,7 @@ import type { Candle } from '@/core/types';
  * Indicator result type
  * Can be a single value or an object with multiple values
  */
-export type IndicatorValue = number | Record<string, number> | null;
+export type IndicatorValue = number | Record<string, number | null> | null;
 
 /**
  * Indicator interface
@@ -27,22 +27,22 @@ export interface IIndicator<T extends IndicatorValue = IndicatorValue> {
    * @param index - Index of the candle to calculate for (default: last candle)
    * @returns Indicator value or null if not enough data
    */
-  calculate(candles: Candle[], index?: number): T;
+  calculate(candles: Candle[], index?: number): T | null;
 
   /**
    * Calculate indicator values for multiple candles
    * @param candles - Historical candles
-   * @returns Array of indicator values
+   * @returns Array of indicator values (may contain nulls)
    */
-  calculateAll(candles: Candle[]): T[];
+  calculateAll(candles: Candle[]): (T | null)[];
 
   /**
    * Update indicator with a new candle
    * More efficient than recalculating from scratch
    * @param candle - New candle
-   * @returns Updated indicator value
+   * @returns Updated indicator value or null
    */
-  update(candle: Candle): T;
+  update(candle: Candle): T | null;
 
   /**
    * Reset indicator state
@@ -57,7 +57,7 @@ export interface IIndicator<T extends IndicatorValue = IndicatorValue> {
   /**
    * Minimum number of candles required for calculation
    */
-  readonly requiredCandles: number;
+  requiredCandles: number;
 }
 
 /**

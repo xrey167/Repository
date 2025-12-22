@@ -97,8 +97,8 @@ export class PositionNotFoundError extends TradingError {
 export class RiskLimitExceededError extends TradingError {
   constructor(
     message: string,
-    public readonly limit: string,
-    public readonly value: number,
+    public readonly limit: string = '',
+    public readonly value: number = 0,
     details?: unknown
   ) {
     super(message, 'RISK_LIMIT_EXCEEDED', details);

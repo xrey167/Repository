@@ -17,6 +17,7 @@ export type EventType =
   | 'signal:generated'
   | 'signal:executed'
   | 'order:created'
+  | 'order:submitted'
   | 'order:updated'
   | 'order:filled'
   | 'order:partially_filled'
@@ -87,6 +88,7 @@ export interface SignalEvent extends BaseEvent<{ signal: Signal; strategy: strin
 export interface OrderEvent extends BaseEvent<Order> {
   type:
     | 'order:created'
+    | 'order:submitted'
     | 'order:updated'
     | 'order:filled'
     | 'order:partially_filled'

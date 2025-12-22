@@ -43,10 +43,10 @@ export class PaperExecutor implements IExecutor {
 
   constructor(config: PaperExecutorConfig, portfolioManager: PortfolioManager) {
     this.config = {
-      commission: 0.001,
-      slippage: 0.0005,
-      fillDelay: 100,
       ...config,
+      commission: config.commission ?? 0.001,
+      slippage: config.slippage ?? 0.0005,
+      fillDelay: config.fillDelay ?? 100,
     };
     this.portfolioManager = portfolioManager;
   }
