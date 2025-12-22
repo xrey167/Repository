@@ -26,7 +26,9 @@
       "Bash(bun run:*)",
       "Bash(./.claude/workflows/build-all-docs.sh)",
       "Bash(git --git-dir=.bare add .claude/)",
-      "Bash(git --git-dir=.bare commit:*)"
+      "Bash(git --git-dir=.bare commit:*)",
+      "Bash(git --git-dir=.bare add:*)",
+      "Bash(./.claude/workflows/commit-and-push.sh)"
     ]
   },
   "enabledPlugins": {
