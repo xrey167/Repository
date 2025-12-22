@@ -141,6 +141,8 @@ export interface Portfolio {
   marginUsed?: number;
   /** Available margin (optional, for margin trading) */
   marginAvailable?: number;
+  /** Base currency (e.g., 'USD', 'BTC') */
+  currency?: string;
   /** Last update timestamp */
   timestamp: number;
   /** Additional metadata */

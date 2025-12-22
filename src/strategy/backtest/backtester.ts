@@ -267,6 +267,7 @@ export class Backtester {
         type: 'exit',
         side: 'sell',
         symbol: position.symbol,
+        strength: 1.0,
         price: lastCandle.close,
         quantity: position.quantity,
         timestamp: lastCandle.timestamp,

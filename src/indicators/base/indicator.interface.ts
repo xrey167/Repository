@@ -9,7 +9,7 @@ import type { Candle } from '@/core/types';
  * Indicator result type
  * Can be a single value or an object with multiple values
  */
-export type IndicatorValue = number | Record<string, number | null> | null;
+export type IndicatorValue = number | Record<string, number | null | number[] | null> | null;
 
 /**
  * Indicator interface

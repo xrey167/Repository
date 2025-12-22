@@ -17,7 +17,7 @@ export interface PriceLevel {
 /**
  * Volume Profile result
  */
-export interface VolumeProfileValue {
+export interface VolumeProfileValue extends Record<string, number | number[] | null> {
   /**
    * Point of Control (price level with highest volume)
    */
@@ -39,9 +39,9 @@ export interface VolumeProfileValue {
   totalVolume: number | null;
 
   /**
-   * Volume distribution by price level
+   * Volume distribution by price level (stored as array of numbers)
    */
-  levels: PriceLevel[] | null;
+  levels: number[] | null;
 }
 
 /**
@@ -179,19 +179,8 @@ export class VolumeProfileIndicator extends IndicatorBase<VolumeProfileValue> {
     const valueAreaLow = lowestPrice + vaLowBin * binSize;
     const valueAreaHigh = lowestPrice + (vaHighBin + 1) * binSize;
 
-    // Create price levels array
-    const levels: PriceLevel[] = [];
-    for (let i = 0; i < this.bins; i++) {
-      if (volumeByBin[i] > 0) {
-        levels.push({
-          price: lowestPrice + (i + 0.5) * binSize,
-          volume: volumeByBin[i],
-        });
-      }
-    }
-
-    // Sort by volume descending
-    levels.sort((a, b) => b.volume - a.volume);
+    // Return volume distribution by bin
+    const levels = volumeByBin.filter(v => v > 0);
 
     return {
       poc,
@@ -219,7 +208,7 @@ export class VolumeProfileIndicator extends IndicatorBase<VolumeProfileValue> {
    */
   isInValueArea(price: number): boolean {
     const value = this.getValue();
-    if (!value) {
+    if (!value || value.valueAreaLow === null || value.valueAreaHigh === null) {
       return false;
     }
 
@@ -233,7 +222,7 @@ export class VolumeProfileIndicator extends IndicatorBase<VolumeProfileValue> {
    */
   isNearPOC(price: number, threshold: number = 0.005): boolean {
     const value = this.getValue();
-    if (!value) {
+    if (!value || value.poc === null) {
       return false;
     }
 

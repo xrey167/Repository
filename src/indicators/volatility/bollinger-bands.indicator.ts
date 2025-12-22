@@ -38,6 +38,11 @@ export interface BollingerBandsValue {
    * Shows where price is relative to bands
    */
   percentB: number | null;
+
+  /**
+   * Index signature for IndicatorValue compatibility
+   */
+  [key: string]: number | number[] | null;
 }
 
 /**
@@ -145,7 +150,7 @@ export class BollingerBandsIndicator extends IndicatorBase<BollingerBandsValue> 
    */
   isAboveUpperBand(): boolean {
     const value = this.getValue();
-    return value !== null && value.percentB > 1;
+    return value !== null && value.percentB !== null && value.percentB > 1;
   }
 
   /**
@@ -153,7 +158,7 @@ export class BollingerBandsIndicator extends IndicatorBase<BollingerBandsValue> 
    */
   isBelowLowerBand(): boolean {
     const value = this.getValue();
-    return value !== null && value.percentB < 0;
+    return value !== null && value.percentB !== null && value.percentB < 0;
   }
 
   /**
@@ -164,7 +169,8 @@ export class BollingerBandsIndicator extends IndicatorBase<BollingerBandsValue> 
     const current = this.getValue();
     const previous = this.getValueAt(1);
 
-    if (!current || !previous) {
+    if (!current || !previous ||
+        current.bandwidth === null || previous.bandwidth === null) {
       return false;
     }
 
@@ -185,7 +191,8 @@ export class BollingerBandsIndicator extends IndicatorBase<BollingerBandsValue> 
     const current = this.getValue();
     const previous = this.getValueAt(1);
 
-    if (!current || !previous) {
+    if (!current || !previous ||
+        current.bandwidth === null || previous.bandwidth === null) {
       return false;
     }
 

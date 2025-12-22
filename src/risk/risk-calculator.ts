@@ -303,4 +303,64 @@ export class RiskCalculator {
 
     return cov / (stdX * stdY);
   }
+
+  /**
+   * Calculate win rate metrics from trade P&Ls
+   * @param tradePnLs - Array of trade P&L objects
+   * @returns Win rate statistics
+   */
+  calculateWinRate(tradePnLs: Array<{ netPnl: number }>): {
+    winRate: number;
+    winningTrades: number;
+    losingTrades: number;
+    totalTrades: number;
+    averageWin: number;
+    averageLoss: number;
+    winLossRatio: number;
+    profitFactor: number;
+  } {
+    if (tradePnLs.length === 0) {
+      return {
+        winRate: 0,
+        winningTrades: 0,
+        losingTrades: 0,
+        totalTrades: 0,
+        averageWin: 0,
+        averageLoss: 0,
+        winLossRatio: 0,
+        profitFactor: 0,
+      };
+    }
+
+    // Extract net P&L values
+    const pnlValues = tradePnLs.map((t) => t.netPnl);
+
+    const wins = pnlValues.filter((pnl) => pnl > 0);
+    const losses = pnlValues.filter((pnl) => pnl < 0);
+
+    const winningTrades = wins.length;
+    const losingTrades = losses.length;
+    const totalTrades = pnlValues.length;
+
+    const winRate = totalTrades > 0 ? winningTrades / totalTrades : 0;
+    const averageWin = winningTrades > 0 ? this.mean(wins) : 0;
+    const averageLoss = losingTrades > 0 ? Math.abs(this.mean(losses)) : 0;
+    const winLossRatio = averageLoss > 0 ? averageWin / averageLoss : 0;
+
+    // Calculate profit factor (total wins / total losses)
+    const totalWins = wins.reduce((sum, w) => sum + w, 0);
+    const totalLosses = Math.abs(losses.reduce((sum, l) => sum + l, 0));
+    const profitFactor = totalLosses > 0 ? totalWins / totalLosses : 0;
+
+    return {
+      winRate,
+      winningTrades,
+      losingTrades,
+      totalTrades,
+      averageWin,
+      averageLoss,
+      winLossRatio,
+      profitFactor,
+    };
+  }
 }

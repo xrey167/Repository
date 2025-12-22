@@ -163,7 +163,7 @@ export class OrderValidator {
         throw new InsufficientBalanceError(
           order.quantity ?? 0,
           0,
-          order.symbol
+          order.symbol ?? 'unknown'
         );
       }
 
@@ -171,7 +171,7 @@ export class OrderValidator {
         throw new InsufficientBalanceError(
           order.quantity ?? 0,
           position.quantity,
-          order.symbol
+          order.symbol ?? 'unknown'
         );
       }
     }

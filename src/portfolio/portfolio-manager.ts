@@ -28,14 +28,19 @@ export class PortfolioManager {
    */
   initialize(initialCapital: number, currency: string = 'USD'): void {
     const portfolio: Portfolio = {
+      id: 'default',
       equity: initialCapital,
       cash: initialCapital,
+      positions: new Map(),
+      orders: new Map(),
+      initialCapital,
       marginUsed: 0,
       marginAvailable: initialCapital,
       unrealizedPnl: 0,
       realizedPnl: 0,
       totalPnl: 0,
       currency,
+      timestamp: Date.now(),
     };
 
     // Set initial balance
@@ -146,6 +151,7 @@ export class PortfolioManager {
    */
   private createPosition(trade: Trade): void {
     const position: Position = {
+      id: trade.id,
       symbol: trade.symbol,
       side: trade.side === 'buy' ? 'long' : 'short',
       quantity: trade.quantity,
@@ -254,8 +260,8 @@ export class PortfolioManager {
     );
 
     portfolio.equity = portfolio.cash + positionValue;
-    portfolio.marginUsed = positions.reduce((sum, pos) => sum + pos.margin, 0);
-    portfolio.marginAvailable = portfolio.equity - portfolio.marginUsed;
+    portfolio.marginUsed = positions.reduce((sum, pos) => sum + (pos.margin ?? 0), 0);
+    portfolio.marginAvailable = portfolio.equity - (portfolio.marginUsed ?? 0);
 
     this.store.setPortfolio(portfolio);
   }

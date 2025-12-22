@@ -92,6 +92,24 @@ export class RiskManager {
   }
 
   /**
+   * Check if order can be placed
+   * Non-throwing version of validateOrder
+   * @returns true if order can be placed, false otherwise
+   */
+  canPlaceOrder(
+    order: Partial<Order>,
+    portfolio: Portfolio,
+    positions: Position[]
+  ): boolean {
+    try {
+      this.validateOrder(order, portfolio, positions);
+      return true;
+    } catch {
+      return false;
+    }
+  }
+
+  /**
    * Calculate optimal position size
    */
   calculatePositionSize(

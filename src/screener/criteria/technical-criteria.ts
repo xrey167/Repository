@@ -109,7 +109,9 @@ export class MACDCrossoverCriteria implements ICriteria {
     const current = macd.calculate(candles);
     const previous = macd.calculate(candles, candles.length - 2);
 
-    if (!current || !previous) {
+    if (!current || !previous ||
+        current.macd === null || current.signal === null ||
+        previous.macd === null || previous.signal === null) {
       return null;
     }
 

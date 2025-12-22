@@ -22,7 +22,7 @@ export abstract class StrategyBase implements IStrategy {
 
   constructor(config: StrategyConfig) {
     this.config = config;
-    this.logger = createLogger(this.name);
+    this.logger = createLogger(this.constructor.name);
     this.parameters = config.parameters || {};
   }
 
@@ -90,6 +90,7 @@ export abstract class StrategyBase implements IStrategy {
       type: 'entry',
       side: 'buy',
       symbol: this.config.symbols[0],
+      strength: 1.0,
       price,
       quantity,
       timestamp: Date.now(),
@@ -110,6 +111,7 @@ export abstract class StrategyBase implements IStrategy {
       type: 'exit',
       side: 'sell',
       symbol: this.config.symbols[0],
+      strength: 1.0,
       price,
       quantity,
       timestamp: Date.now(),

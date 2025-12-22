@@ -26,6 +26,11 @@ export interface MACDValue {
    * Histogram (MACD - Signal)
    */
   histogram: number | null;
+
+  /**
+   * Index signature for IndicatorValue compatibility
+   */
+  [key: string]: number | number[] | null;
 }
 
 /**
@@ -175,7 +180,9 @@ export class MACDIndicator extends IndicatorBase<MACDValue> {
     const current = this.getValue();
     const previous = this.getValueAt(1);
 
-    if (!current || !previous) {
+    if (!current || !previous ||
+        current.macd === null || current.signal === null ||
+        previous.macd === null || previous.signal === null) {
       return false;
     }
 
@@ -189,7 +196,9 @@ export class MACDIndicator extends IndicatorBase<MACDValue> {
     const current = this.getValue();
     const previous = this.getValueAt(1);
 
-    if (!current || !previous) {
+    if (!current || !previous ||
+        current.macd === null || current.signal === null ||
+        previous.macd === null || previous.signal === null) {
       return false;
     }
 
@@ -203,7 +212,8 @@ export class MACDIndicator extends IndicatorBase<MACDValue> {
     const current = this.getValue();
     const previous = this.getValueAt(1);
 
-    if (!current || !previous) {
+    if (!current || !previous ||
+        current.histogram === null || previous.histogram === null) {
       return false;
     }
 

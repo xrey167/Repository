@@ -21,6 +21,11 @@ export interface StochasticValue {
    * %D line (slow stochastic, SMA of %K)
    */
   d: number | null;
+
+  /**
+   * Index signature for IndicatorValue compatibility
+   */
+  [key: string]: number | number[] | null;
 }
 
 /**
@@ -136,7 +141,7 @@ export class StochasticIndicator extends IndicatorBase<StochasticValue> {
         const kCandles: Candle[] = [];
         for (let i = idx - this.dPeriod + 1; i <= idx; i++) {
           const kValue = this.calculate(candles, i);
-          if (kValue !== null) {
+          if (kValue !== null && kValue.k !== null) {
             kCandles.push({
               ...candles[i],
               close: kValue.k,
@@ -185,7 +190,7 @@ export class StochasticIndicator extends IndicatorBase<StochasticValue> {
    */
   isOversold(threshold: number = 20): boolean {
     const value = this.getValue();
-    return value !== null && value.k < threshold;
+    return value !== null && value.k !== null && value.k < threshold;
   }
 
   /**
@@ -194,7 +199,7 @@ export class StochasticIndicator extends IndicatorBase<StochasticValue> {
    */
   isOverbought(threshold: number = 80): boolean {
     const value = this.getValue();
-    return value !== null && value.k > threshold;
+    return value !== null && value.k !== null && value.k > threshold;
   }
 
   /**
@@ -204,7 +209,9 @@ export class StochasticIndicator extends IndicatorBase<StochasticValue> {
     const current = this.getValue();
     const previous = this.getValueAt(1);
 
-    if (!current || !previous) {
+    if (!current || !previous ||
+        current.k === null || current.d === null ||
+        previous.k === null || previous.d === null) {
       return false;
     }
 
@@ -218,7 +225,9 @@ export class StochasticIndicator extends IndicatorBase<StochasticValue> {
     const current = this.getValue();
     const previous = this.getValueAt(1);
 
-    if (!current || !previous) {
+    if (!current || !previous ||
+        current.k === null || current.d === null ||
+        previous.k === null || previous.d === null) {
       return false;
     }
 
