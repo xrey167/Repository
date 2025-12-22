@@ -2,8 +2,8 @@
   "name": "auto-git-workflow",
   "description": "Automated git workflow for documentation and code changes",
   "event": "SessionEnd",
-  "enabled": false,
-  "note": "Enable this to auto-commit at session end. Set to true when you want automatic commits.",
+  "enabled": true,
+  "note": "Auto-commit workflow is now enabled. Will prompt at session end.",
   "actions": [
     {
       "type": "bash",
