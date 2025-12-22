@@ -1,0 +1,35 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git push:*)",
+      "Bash(git mv:*)",
+      "Bash(git reset:*)",
+      "Bash(git --git-dir=.bare worktree add:*)",
+      "Bash(git commit:*)",
+      "Bash(git add:*)",
+      "Bash(git --git-dir=.bare branch:*)",
+      "Bash(git --git-dir=.bare worktree:*)",
+      "Bash(bun install)",
+      "Bash(find:*)",
+      "Bash(copy C:Python311python.exe C:Python311python3.exe)",
+      "Bash(powershell:*)",
+      "Bash(chmod:*)",
+      "Bash(python3:*)",
+      "Bash(git --git-dir=.bare config:*)",
+      "Bash(git --git-dir=.bare remote:*)",
+      "Bash(./git-wt.sh list:*)",
+      "Bash(git --git-dir=.bare status:*)",
+      "Bash(git --git-dir=.bare push origin main)",
+      "Bash(git --git-dir=.bare pull:*)",
+      "Bash(cat:*)",
+      "Bash(bunx create-docusaurus@latest:*)",
+      "Bash(bun run:*)",
+      "Bash(./.claude/workflows/build-all-docs.sh)",
+      "Bash(git --git-dir=.bare add .claude/)",
+      "Bash(git --git-dir=.bare commit:*)"
+    ]
+  },
+  "enabledPlugins": {
+    "github@claude-plugins-official": true
+  }
+}

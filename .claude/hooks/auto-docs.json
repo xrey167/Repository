@@ -1,0 +1,24 @@
+{
+  "name": "auto-docs-generator",
+  "description": "Automatically generate documentation when TypeScript files are edited",
+  "event": "PostToolUse",
+  "enabled": true,
+  "filter": {
+    "tools": ["Edit", "Write"],
+    "pathPatterns": [
+      "agents/src/**/*.ts",
+      "algotrading/src/**/*.ts",
+      "github/src/**/*.ts",
+      "n8n/src/**/*.ts",
+      "notion/src/**/*.ts"
+    ]
+  },
+  "actions": [
+    {
+      "type": "bash",
+      "command": "cd agents && bun run docs:generate",
+      "description": "Regenerate TypeDoc documentation for agents project",
+      "async": true
+    }
+  ]
+}

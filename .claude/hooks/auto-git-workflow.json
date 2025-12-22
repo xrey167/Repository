@@ -1,0 +1,26 @@
+{
+  "name": "auto-git-workflow",
+  "description": "Automated git workflow for documentation and code changes",
+  "event": "SessionEnd",
+  "enabled": false,
+  "note": "Enable this to auto-commit at session end. Set to true when you want automatic commits.",
+  "actions": [
+    {
+      "type": "bash",
+      "command": "./git-wt.sh list",
+      "description": "Show all worktree status",
+      "async": false
+    },
+    {
+      "type": "prompt",
+      "message": "Would you like to commit and push changes?",
+      "requireConfirmation": true
+    },
+    {
+      "type": "bash",
+      "command": "for dir in agents algotrading github n8n notion erp; do cd \"$dir\" && git status --short && cd ..; done",
+      "description": "Check status of all projects",
+      "async": false
+    }
+  ]
+}
