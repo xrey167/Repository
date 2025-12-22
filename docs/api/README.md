@@ -1,3 +1,7 @@
+**tradesync-sdk v1.0.0**
+
+***
+
 # TradeSync SDK
 
 A TypeScript SDK for the TradeSync API, providing type-safe access to trading account management, copy trading, command execution, and analytics.

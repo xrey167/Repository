@@ -1,49 +1,30 @@
 # Dependencies
 node_modules/
-.pnpm-store/
 
-# Build outputs
+# Build output
 dist/
-build/
-.next/
-out/
 
-# Cache
-.cache/
-.turbo/
-*.tsbuildinfo
-
-# Environment
+# Environment files
 .env
 .env.local
-.env.*.local
 
 # IDE
 .idea/
+.vscode/
 *.swp
 *.swo
 
 # OS
 .DS_Store
 Thumbs.db
-desktop.ini
-nul
 
 # Logs
-logs/
 *.log
-npm-debug.log*
+logs/
 
-# Testing
+# Coverage
 coverage/
-.nyc_output/
 
-# Credentials (never commit)
-*.pem
-*.key
-credentials.json
-service-account.json
-
-# Git worktree artifacts
-.bare/
-.temp_backup/
+# Lock files (using bun.lockb)
+package-lock.json
+yarn.lock

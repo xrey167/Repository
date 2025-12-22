@@ -1,0 +1,146 @@
+[**tradesync-sdk v1.0.0**](../README.md)
+
+***
+
+[tradesync-sdk](../globals.md) / MT5\_ERROR\_CODES
+
+# Variable: MT5\_ERROR\_CODES
+
+> `const` **MT5\_ERROR\_CODES**: `object`
+
+Defined in: src/errors.ts:398
+
+MetaTrader 5 Error Codes (Trade Return Codes)
+
+Standard return codes from MT5 trade server operations.
+These codes indicate the result of trade requests.
+
+## Type Declaration
+
+### TRADE\_RETCODE\_REQUOTE
+
+> `readonly` **TRADE\_RETCODE\_REQUOTE**: `10004` = `10004`
+
+### TRADE\_RETCODE\_REJECT
+
+> `readonly` **TRADE\_RETCODE\_REJECT**: `10006` = `10006`
+
+### TRADE\_RETCODE\_CANCEL
+
+> `readonly` **TRADE\_RETCODE\_CANCEL**: `10007` = `10007`
+
+### TRADE\_RETCODE\_PLACED
+
+> `readonly` **TRADE\_RETCODE\_PLACED**: `10008` = `10008`
+
+### TRADE\_RETCODE\_DONE
+
+> `readonly` **TRADE\_RETCODE\_DONE**: `10009` = `10009`
+
+### TRADE\_RETCODE\_DONE\_PARTIAL
+
+> `readonly` **TRADE\_RETCODE\_DONE\_PARTIAL**: `10010` = `10010`
+
+### TRADE\_RETCODE\_ERROR
+
+> `readonly` **TRADE\_RETCODE\_ERROR**: `10011` = `10011`
+
+### TRADE\_RETCODE\_TIMEOUT
+
+> `readonly` **TRADE\_RETCODE\_TIMEOUT**: `10012` = `10012`
+
+### TRADE\_RETCODE\_INVALID
+
+> `readonly` **TRADE\_RETCODE\_INVALID**: `10013` = `10013`
+
+### TRADE\_RETCODE\_INVALID\_VOLUME
+
+> `readonly` **TRADE\_RETCODE\_INVALID\_VOLUME**: `10014` = `10014`
+
+### TRADE\_RETCODE\_INVALID\_PRICE
+
+> `readonly` **TRADE\_RETCODE\_INVALID\_PRICE**: `10015` = `10015`
+
+### TRADE\_RETCODE\_INVALID\_STOPS
+
+> `readonly` **TRADE\_RETCODE\_INVALID\_STOPS**: `10016` = `10016`
+
+### TRADE\_RETCODE\_TRADE\_DISABLED
+
+> `readonly` **TRADE\_RETCODE\_TRADE\_DISABLED**: `10017` = `10017`
+
+### TRADE\_RETCODE\_MARKET\_CLOSED
+
+> `readonly` **TRADE\_RETCODE\_MARKET\_CLOSED**: `10018` = `10018`
+
+### TRADE\_RETCODE\_NO\_MONEY
+
+> `readonly` **TRADE\_RETCODE\_NO\_MONEY**: `10019` = `10019`
+
+### TRADE\_RETCODE\_PRICE\_CHANGED
+
+> `readonly` **TRADE\_RETCODE\_PRICE\_CHANGED**: `10020` = `10020`
+
+### TRADE\_RETCODE\_PRICE\_OFF
+
+> `readonly` **TRADE\_RETCODE\_PRICE\_OFF**: `10021` = `10021`
+
+### TRADE\_RETCODE\_INVALID\_EXPIRATION
+
+> `readonly` **TRADE\_RETCODE\_INVALID\_EXPIRATION**: `10022` = `10022`
+
+### TRADE\_RETCODE\_ORDER\_CHANGED
+
+> `readonly` **TRADE\_RETCODE\_ORDER\_CHANGED**: `10023` = `10023`
+
+### TRADE\_RETCODE\_TOO\_MANY\_REQUESTS
+
+> `readonly` **TRADE\_RETCODE\_TOO\_MANY\_REQUESTS**: `10024` = `10024`
+
+### TRADE\_RETCODE\_NO\_CHANGES
+
+> `readonly` **TRADE\_RETCODE\_NO\_CHANGES**: `10025` = `10025`
+
+### TRADE\_RETCODE\_SERVER\_DISABLES\_AT
+
+> `readonly` **TRADE\_RETCODE\_SERVER\_DISABLES\_AT**: `10026` = `10026`
+
+### TRADE\_RETCODE\_CLIENT\_DISABLES\_AT
+
+> `readonly` **TRADE\_RETCODE\_CLIENT\_DISABLES\_AT**: `10027` = `10027`
+
+### TRADE\_RETCODE\_LOCKED
+
+> `readonly` **TRADE\_RETCODE\_LOCKED**: `10028` = `10028`
+
+### TRADE\_RETCODE\_FROZEN
+
+> `readonly` **TRADE\_RETCODE\_FROZEN**: `10029` = `10029`
+
+### TRADE\_RETCODE\_INVALID\_FILL
+
+> `readonly` **TRADE\_RETCODE\_INVALID\_FILL**: `10030` = `10030`
+
+### TRADE\_RETCODE\_CONNECTION
+
+> `readonly` **TRADE\_RETCODE\_CONNECTION**: `10031` = `10031`
+
+### TRADE\_RETCODE\_ONLY\_REAL
+
+> `readonly` **TRADE\_RETCODE\_ONLY\_REAL**: `10032` = `10032`
+
+### TRADE\_RETCODE\_LIMIT\_ORDERS
+
+> `readonly` **TRADE\_RETCODE\_LIMIT\_ORDERS**: `10033` = `10033`
+
+### TRADE\_RETCODE\_LIMIT\_VOLUME
+
+> `readonly` **TRADE\_RETCODE\_LIMIT\_VOLUME**: `10034` = `10034`
+
+### TRADE\_RETCODE\_INVALID\_ORDER
+
+> `readonly` **TRADE\_RETCODE\_INVALID\_ORDER**: `10035` = `10035`
+
+### TRADE\_RETCODE\_POSITION\_CLOSED
+
+> `readonly` **TRADE\_RETCODE\_POSITION\_CLOSED**: `10036` = `10036`
