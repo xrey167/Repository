@@ -28,7 +28,10 @@
       "Bash(git --git-dir=.bare add .claude/)",
       "Bash(git --git-dir=.bare commit:*)",
       "Bash(git --git-dir=.bare add:*)",
-      "Bash(./.claude/workflows/commit-and-push.sh)"
+      "Bash(./.claude/workflows/commit-and-push.sh)",
+      "Bash(gh run:*)",
+      "Bash(gh api:*)",
+      "Bash(gh workflow run:*)"
     ]
   },
   "enabledPlugins": {
