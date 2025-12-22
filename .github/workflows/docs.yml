@@ -1,0 +1,86 @@
+name: Documentation
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'docs/**'
+      - 'agents/src/**'
+      - 'agents/typedoc.json'
+      - '.github/workflows/docs.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'docs/**'
+      - 'agents/src/**'
+      - '.github/workflows/docs.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build Documentation
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.head_ref || github.ref }}
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      # Generate TypeDoc documentation for agents project
+      - name: Install agents dependencies
+        working-directory: agents
+        run: bun install --frozen-lockfile
+
+      - name: Generate agents API docs
+        working-directory: agents
+        run: bun run docs:generate
+
+      # TODO: Add TypeDoc generation for other TypeScript projects
+      # - algotrading
+      # - github
+      # - n8n
+      # - notion
+
+      # Build Docusaurus site
+      - name: Install docs dependencies
+        working-directory: docs
+        run: bun install --frozen-lockfile
+
+      - name: Build Docusaurus
+        working-directory: docs
+        run: bun run build
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs/build
+
+  deploy:
+    name: Deploy to GitHub Pages
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    needs: build
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
