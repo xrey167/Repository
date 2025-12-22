@@ -27,6 +27,7 @@ out/
 .DS_Store
 Thumbs.db
 desktop.ini
+nul
 
 # Logs
 logs/
@@ -42,3 +43,7 @@ coverage/
 *.key
 credentials.json
 service-account.json
+
+# Git worktree artifacts
+.bare/
+.temp_backup/
