@@ -28,7 +28,7 @@ jobs:
           ref: ${{ github.head_ref || github.ref }}
 
       - name: Setup Bun
-        uses: oven-sh/setup-bun@v1
+        uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
 
@@ -49,7 +49,7 @@ jobs:
           ref: ${{ github.head_ref || github.ref }}
 
       - name: Setup Bun
-        uses: oven-sh/setup-bun@v1
+        uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
 
@@ -70,7 +70,7 @@ jobs:
           ref: ${{ github.head_ref || github.ref }}
 
       - name: Setup Bun
-        uses: oven-sh/setup-bun@v1
+        uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
 
