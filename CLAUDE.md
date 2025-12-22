@@ -2,7 +2,7 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this directory.
 
-## Project: n8n Workflow Automation
+## Project: GitHub Integrations
 
 <!-- TODO: Add project description -->
 
