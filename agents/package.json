@@ -11,7 +11,7 @@
     "docs:watch": "typedoc --watch"
   },
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.52.0",
+    "@anthropic-ai/sdk": "^0.71.2",
     "openai": "^4.77.0",
     "dotenv": "^16.4.7",
     "dotenv-expand": "^12.0.1"
