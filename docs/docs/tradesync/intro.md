@@ -99,8 +99,7 @@ const sdk = createTradeSync({
 });
 ```
 
-## Next Steps
 
-- [API Reference](./api/README.md) - Complete API documentation
-- [Symbol Mapping](./symbol-mapping.md) - Configure symbol translation
-- [Error Codes](./error-codes.md) - MT4/MT5 error reference
+## Source Code
+
+The SDK source code is available in the tradesync/ directory of this repository.
