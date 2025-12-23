@@ -1,0 +1,31 @@
+{
+  "name": "tradesync-sdk",
+  "version": "1.0.0",
+  "description": "TypeScript SDK for TradeSync API with retry logic and error handling",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "dev": "bun run src/index.ts",
+    "build": "tsc",
+    "test": "bun test",
+    "typecheck": "tsc --noEmit",
+    "docs:generate": "typedoc",
+    "docs:watch": "typedoc --watch"
+  },
+  "dependencies": {
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "typedoc": "^0.28.15",
+    "typedoc-plugin-markdown": "^4.9.0",
+    "typescript": "^5.7.2"
+  }
+}
